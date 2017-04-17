@@ -10,7 +10,7 @@ var payload = [];
 
 app.get('/', function (req, res) {
 
-    pageURL = 'http://www.archanaskitchen.com/';
+    pageURL = 'http://www.archanaskitchen.com/how-to-make-homemade-pita-bread';
 
     request(pageURL, function (error, response, html) {
 
@@ -21,23 +21,15 @@ app.get('/', function (req, res) {
         if (response.statusCode === 200) {
             // Parse the document body
             var $ = cheerio.load(html);
-            $('.media-list li').each(function () {
-                var current = $(this);
-
-                var crawledData = {
-                    recipe: current.text().replace(/\s+/g, ''),
-                    url: 'http://www.archanaskitchen.com/' + current.find('a').attr('href')
-                }
-
-                payload.push(crawledData);
-
-            });
-            res.send(payload);
+            console.log($);
+            var htmlSource = 'Entire HTMl Source' + $.html();
+            //  console.log(htmlSource);
+            res.send('extracted');
         }
     })
 });
 
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+app.listen(app.get('port'), function () {
+    console.log('Node app is running on port', app.get('port'));
 });

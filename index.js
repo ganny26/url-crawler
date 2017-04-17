@@ -22,9 +22,8 @@ app.get('/', function (req, res) {
             // Parse the document body
             var $ = cheerio.load(html);
             console.log($);
-            var htmlSource = 'Entire HTMl Source' + $.html();
-            //  console.log(htmlSource);
-            res.send('extracted');
+            var htmlSource = 'Entire HTML Source' + $.html();
+            res.write(htmlSource);
         }
     })
 });

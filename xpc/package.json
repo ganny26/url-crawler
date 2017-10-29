@@ -1,0 +1,21 @@
+{
+  "name": "xpath11",
+  "version": "1.0.0",
+  "description": "xpath for ingredient and method",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "ganesh@wa2do.co",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "cheerio": "^1.0.0-rc.2",
+    "mocha": "^4.0.1",
+    "request": "^2.83.0",
+    "should": "^13.1.3",
+    "xmldom": "^0.1.27",
+    "xpath": "0.0.24",
+    "xpath.js": "^1.0.7"
+  }
+}

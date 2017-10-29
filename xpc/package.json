@@ -6,7 +6,7 @@
   "scripts": {
     "test": "mocha"
   },
-  "author": "ganesh@wa2do.co",
+  "author": "selvaganesh93@gmail.com",
   "license": "MIT",
   "dependencies": {
     "chai": "^4.1.2",

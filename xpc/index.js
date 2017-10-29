@@ -17,9 +17,3 @@ requestByUrl = function(requrl,callback){
     })
     callback(z);
 }
-
-
-
-  requestByUrl(CRAWL_URL,function(z){
-
-  });

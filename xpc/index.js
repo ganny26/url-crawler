@@ -6,14 +6,15 @@ const CRAWL_URL = "http://food.ndtv.com/recipe-quinoa-pancakes-868999";
 
 
 
-requestByUrl = function(requrl,callback){
-    var z;
-    request(requrl, (err, res, body) => {
+
+    var ingredientTags;
+    request(CRAWL_URL, function(err, res, body)  {
         var $ = cheerio.load(body);
         let tags = ['a', 'p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'i', 'b', 'u', 'span', 'strong', 'td', 'li', 'center'];
         let ingredientkeywords = ['ingredients used', 'ingredients for', 'ingredients in', 'ingredients of', 'ingredients to', 'ingredients'];
         let methodkeywords = ['directions for', 'directions'];
-        z = Main.getElementByXpath(body, tags, ingredientkeywords);
+        ingredientTags = Main.getElementByXpath(body, tags, ingredientkeywords);
+        console.log(ingredientTags);
     })
-    callback(z);
-}
+
+    console.log(Main.addNumbers(2,4));

@@ -5,8 +5,6 @@ const Main = require('./main');
 const CRAWL_URL = "http://food.ndtv.com/recipe-quinoa-pancakes-868999";
 
 
-
-
     var ingredientTags;
     request(CRAWL_URL, function(err, res, body)  {
         var $ = cheerio.load(body);

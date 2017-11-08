@@ -5,8 +5,12 @@ const request = require('request');
 module.exports = {
     getElementByXpath: function (htmlContent, tagsList, strList) {
         let tags = tagsList;
-        var doc = new dom().parseFromString(htmlContent)
+        var doc = new dom({
+            locator:{},
+            errorHandler:function(err){} 
+        }).parseFromString(htmlContent);
         let results = [];
+        let elements = [];
         let preferredStrings = strList;
         for (i = 0; i < preferredStrings.length; i++) {
             for (j = 0; j < tags.length; j++) {
@@ -20,16 +24,19 @@ module.exports = {
                 )
                 node = result.iterateNext();
                 while (node) {
-                    results.push(node.toString());
-                    node = result.iterateNext();
+                     results.push(node.firstChild.data);
+                     let completeTag = node.toString();
+                     let obj = {
+                         "text":node.firstChild.data,
+                         "element":node.localName,
+                         "tag":completeTag
+                     }
+                     elements.push(obj);
+                     node = result.iterateNext();
                 }
             }
         }
-        console.log(result);
-        return result;
-    },
-    addNumbers: function (x, y) {
-        return x + y;
+        return elements;
     }
 }
 

@@ -4,6 +4,7 @@ var tablerows = jQuery(downloadArea).find('div.table-row');
 
 /**crawl result**/
 /** only for apkmirror **/
+
 tablerows.map((q)=>{
 	var cells = q.find('div.table-cell');
 	var result = {};
